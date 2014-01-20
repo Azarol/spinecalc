@@ -1,0 +1,215 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>slider demo</title>
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  
+  <script src="js/jquery.imgpreload.min.js"></script>
+  <script src="js/jquery-ui.toggleSwitch.js"></script>
+  <script src="js/custom.js"></script>
+  
+  <link rel="stylesheet" href="css/normalise.css">
+  <link rel="stylesheet" href="css/custom.css">
+  <link rel="stylesheet" href="theme/jquery-ui.css">
+  <script src="js/modernizr-2.0.6.min.js"></script>
+
+  <style type="text/css">
+	body { text-align: center; }
+	#calc{ text-align: center; 
+			font-size: 12px;
+			font-weight: bold;
+			width: 320px; margin:auto; 
+	}
+	
+	#calc_header {
+		font-size: 18px;
+		color: #222;
+		text-align: center;
+		width: 320px;
+		margin: 0 0 30px -5px;
+	}
+	
+	#binding{
+		font-size: 12px;
+		font-weight: bold;
+	}
+	
+	#radiog1{
+		margin: 12px;
+	}
+
+	#density{
+		font-size: 12px;
+		font-weight: bold;
+	}
+	
+	#radiog2{
+		margin: 12px;
+	}
+	
+	#density{
+		margin-bottom: 30px;
+	}
+	
+	#quantity{
+		margin-bottom: 30px;	
+	}
+	
+	#slider1{
+		margin-bottom: 30px;
+		width: 321px;
+	}
+	
+	#slider2{
+		margin-bottom: 30px;
+		width: 321px;
+	}
+	
+	#result {
+		left: 0;
+		bottom: 0;
+		width: 320px;
+		height: 70px;
+		background-color: #aaa;
+		border-radius: 10px;
+	}
+	
+	#result-msg {
+		position: relative;
+		top: 25px;
+		color: #fff;
+		font-size: 18px;
+		text-shadow: #7e8591 0 1px 1px;
+	}
+	
+	/* маркеры на слайдере */
+	
+	.ruler {
+		position: relative;
+		width: 318px;
+		height: 20px;
+		padding-bottom: 5px;
+	}
+	
+	.mark {
+		position: absolute;
+		top: 0;
+		font-size: 11px;
+		line-height: 14px;
+		text-align: center;
+	}
+	
+	.mark1 { left: 3px; } .mark2 { left: 46px; } .mark3 { left: 90px; } .mark4 { left: 133px; } .mark5 { left: 174px; } .mark6 { left: 218px; } .mark7 { left: 261px; }.mark8 { left: 303px; }
+	
+	.vline {
+		margin: .1em auto 0;
+		margin-top: 0.1em;
+		margin-right: auto;
+		margin-bottom: 0px;
+		margin-left: auto;
+		width: 1px;
+		height: 5px;
+		background: #bec1c0;
+		vertical-align: baseline;
+	}
+	
+  </style>
+
+</head>
+<body>
+
+<div id="calc">
+	<div id="calc_header">Приблизительный расчет толщины корешка</div>
+	<div id="binding">Переплет</div>
+    <div id="radiog1">
+        <input type="radio" id="radio1" name="radio1" /><label for="radio1">Твердый</label>
+        <input type="radio" id="radio2" name="radio1" /><label for="radio2">Мягкий</label>
+    </div>
+
+	<div id="paper_type">Тип бумаги</div>
+	
+    <div id="radiog2">
+        <input type="radio" id="radio3" name="radio2" /><label for="radio3">Мелованная</label>
+        <input type="radio" id="radio4" name="radio2" /><label for="radio4">Офсетная</label>
+    </div>
+
+	<div id="density">Плотность (г/см<sup>2</sup>)</div>
+	
+	
+	<div class="ruler">
+				<div class="mark mark1">
+					<span class="mark-value">65</span>
+					<div class="vline"></div>
+				</div>
+				
+				<div class="mark mark2">
+					<span class="mark-value">70</span>
+					<div class="vline"></div>
+				</div>		
+
+				<div class="mark mark3">
+					<span class="mark-value">80</span>
+					<div class="vline"></div>
+				</div>	
+
+				<div class="mark mark4">
+					<span class="mark-value">90</span>
+					<div class="vline"></div>
+				</div>	
+
+				<div class="mark mark5">
+					<span class="mark-value">100</span>
+					<div class="vline"></div>
+				</div>
+				
+				<div class="mark mark6">
+					<span class="mark-value">120</span>
+					<div class="vline"></div>
+				</div>
+				
+				<div class="mark mark7">
+					<span class="mark-value">160</span>
+					<div class="vline"></div>
+				</div>
+				
+				<div class="mark mark8">
+					<span class="mark-value">200</span>
+					<div class="vline"></div>
+				</div>
+			</div>
+	
+	
+	<div id="slider1" style="width: 100%;"></div>
+
+	<div id="quantity">Количество страниц</div>
+	<div id="slider2" style="width: 100%;"></div>
+	
+	<div id="result">
+		<div id="result-msg">
+		Толщина корешка — 26.10 мм 
+		</div>
+	</div>
+</div>
+
+<script>
+
+$( "#slider1" ).empty().slider({
+			value: 50,
+			range: "min",
+			animate: true,
+			orientation: "horizontal"
+		});
+$( "#slider2" ).empty().slider({
+			value: 50,
+			range: "min",
+			animate: true,
+			orientation: "horizontal"
+		});	
+
+</script>
+
+</body>
+</html>
