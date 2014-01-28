@@ -21,14 +21,14 @@
 	#calc{ text-align: center; 
 			font-size: 12px;
 			font-weight: bold;
-			width: 320px; margin:auto; 
+			width: 310px; margin:auto; 
 	}
 	
 	#calc_header {
 		font-size: 18px;
 		color: #222;
 		text-align: center;
-		width: 320px;
+		width: 310px;
 		margin: 0 0 30px -5px;
 	}
 	
@@ -55,7 +55,11 @@
 	}
 	
 	#quantity{
-		margin-bottom: 30px;	
+		margin-top: 20px;
+		margin-bottom: 20px;
+	}
+	
+	#pageq{
 	}
 	
 	#slider1{
@@ -71,7 +75,7 @@
 	#result {
 		left: 0;
 		bottom: 0;
-		width: 320px;
+		width: 310px;
 		height: 70px;
 		background-color: #aaa;
 		border-radius: 10px;
@@ -81,7 +85,7 @@
 		position: relative;
 		top: 25px;
 		color: #fff;
-		font-size: 18px;
+		font-size: 16px;
 		text-shadow: #7e8591 0 1px 1px;
 	}
 	
@@ -102,7 +106,8 @@
 		text-align: center;
 	}
 	
-	.mark1 { left: 3px; } .mark2 { left: 46px; } .mark3 { left: 90px; } .mark4 { left: 133px; } .mark5 { left: 174px; } .mark6 { left: 218px; } .mark7 { left: 261px; }.mark8 { left: 303px; }
+	.mark1a { left: -4px; } .mark2a { left: 39px; } .mark3a { left: 83px; } .mark4a { left: 126px; } .mark5a { left: 170px; } .mark6a { left: 213px; } .mark7a { left: 256px; }.mark8a { left: 300px; }
+	.mark1b { left: -4px; } .mark2b { left: 72px; } .mark3b { left: 150px; } .mark4b { left: 227px; } .mark5b { left: 300px; }
 	
 	.vline {
 		margin: .1em auto 0;
@@ -116,6 +121,8 @@
 		vertical-align: baseline;
 	}
 	
+	/* второй слайдер */
+	.mark1c { left: -4px; } .mark2c { left: 300px; }
   </style>
 
 </head>
@@ -125,89 +132,215 @@
 	<div id="calc_header">Приблизительный расчет толщины корешка</div>
 	<div id="binding">Переплет</div>
     <div id="radiog1">
-        <input type="radio" id="radio1" name="radio1" /><label for="radio1">Твердый</label>
-        <input type="radio" id="radio2" name="radio1" /><label for="radio2">Мягкий</label>
+        <input type="radio" id="radio1" name="radio1" /><label for="radio1" >Твердый</label>
+        <input type="radio" id="radio2" name="radio1" /><label for="radio2" >Мягкий</label>
     </div>
 
 	<div id="paper_type">Тип бумаги</div>
 	
     <div id="radiog2">
-        <input type="radio" id="radio3" name="radio2" /><label for="radio3">Мелованная</label>
-        <input type="radio" id="radio4" name="radio2" /><label for="radio4">Офсетная</label>
+        <input type="radio" id="radio3" name="radio2" /><label for="radio3" >Мелованная</label>
+        <input type="radio" id="radio4" name="radio2" /><label for="radio4" >Офсетная</label>
     </div>
 
-	<div id="density">Плотность (г/см<sup>2</sup>)</div>
+	<div id="density">Плотность (г/см<sup>2</sup>)</div> 
 	
-	
-	<div class="ruler">
-				<div class="mark mark1">
-					<span class="mark-value">65</span>
-					<div class="vline"></div>
-				</div>
-				
-				<div class="mark mark2">
-					<span class="mark-value">70</span>
-					<div class="vline"></div>
-				</div>		
-
-				<div class="mark mark3">
-					<span class="mark-value">80</span>
-					<div class="vline"></div>
-				</div>	
-
-				<div class="mark mark4">
-					<span class="mark-value">90</span>
-					<div class="vline"></div>
-				</div>	
-
-				<div class="mark mark5">
-					<span class="mark-value">100</span>
-					<div class="vline"></div>
-				</div>
-				
-				<div class="mark mark6">
-					<span class="mark-value">120</span>
-					<div class="vline"></div>
-				</div>
-				
-				<div class="mark mark7">
-					<span class="mark-value">160</span>
-					<div class="vline"></div>
-				</div>
-				
-				<div class="mark mark8">
-					<span class="mark-value">200</span>
-					<div class="vline"></div>
-				</div>
+	<div id="sba">
+		<div class="ruler">
+			<div class="mark mark1a">
+				<span class="mark-value">65</span>
+				<div class="vline"></div>
 			</div>
-	
-	
-	<div id="slider1" style="width: 100%;"></div>
+			
+			<div class="mark mark2a">
+				<span class="mark-value">70</span>
+				<div class="vline"></div>
+			</div>		
 
-	<div id="quantity">Количество страниц</div>
+			<div class="mark mark3a">
+				<span class="mark-value">80</span>
+				<div class="vline"></div>
+			</div>	
+
+			<div class="mark mark4a">
+				<span class="mark-value">90</span>
+				<div class="vline"></div>
+			</div>	
+
+			<div class="mark mark5a">
+				<span class="mark-value">100</span>
+				<div class="vline"></div>
+			</div>
+			
+			<div class="mark mark6a">
+				<span class="mark-value">120</span>
+				<div class="vline"></div>
+			</div>
+			
+			<div class="mark mark7a">
+				<span class="mark-value">160</span>
+				<div class="vline"></div>
+			</div>
+			
+			<div class="mark mark8a">
+				<span class="mark-value">200</span>
+				<div class="vline"></div>
+			</div>
+		</div>
+		
+		
+		<div id="slider1a" style="width: 100%;"></div>
+	</div>
+	
+	<div id="sbb">
+		<div class="ruler">
+			<div class="mark mark1b">
+				<span class="mark-value">65</span>
+				<div class="vline"></div>
+			</div>
+			
+			<div class="mark mark2b">
+				<span class="mark-value">70</span>
+				<div class="vline"></div>
+			</div>		
+
+			<div class="mark mark3b">
+				<span class="mark-value">80</span>
+				<div class="vline"></div>
+			</div>	
+
+			<div class="mark mark4b">
+				<span class="mark-value">90</span>
+				<div class="vline"></div>
+			</div>	
+
+			<div class="mark mark5b">
+				<span class="mark-value">100</span>
+				<div class="vline"></div>
+			</div>
+		</div>
+		
+		<div id="slider1b" style="width: 100%;"></div>
+	</div>		
+	
+	<div id="quantity">Количество страниц: <span id="pageq">36<span></div>
+	<div class="ruler">
+		<div class="mark mark1c">
+			<span class="mark-value">36</span>
+		<div class="vline"></div>
+				</div>
+				
+		<div class="mark mark2c">
+			<span class="mark-value">1000</span>
+			<div class="vline"></div>
+		</div>
+	</div>
+	
 	<div id="slider2" style="width: 100%;"></div>
 	
 	<div id="result">
 		<div id="result-msg">
-		Толщина корешка — 26.10 мм 
+		Толщина корешка — <span id="result-dgt">26.10</span> мм 
 		</div>
 	</div>
 </div>
 
 <script>
 
-$( "#slider1" ).empty().slider({
-			value: 50,
+var calc = {
+	thicknessRaw: 0,
+	typeKoef: 0.00125,
+	countPages: 36,
+	bindingKOEF: 1.1
+}
+
+function show( id, disp )
+{
+	if( disp )
+		$(id).css('display', 'block');
+	else
+		$(id).css('display', 'none');
+}
+
+function setSlider()
+{
+	var r1 = $("#radio1").prop("checked");
+	var r2 = $("#radio2").prop("checked");
+	var r3 = $("#radio3").prop("checked");
+	var r4 = $("#radio4").prop("checked");
+
+	if( r1 == true && r4 == true )
+	{
+		show( '#sba', true );
+		show( '#sbb', false );
+	}else
+	{
+		show( '#sba', false );
+		show( '#sbb', true );
+	}
+}
+
+$(document).ready(function() {
+	$("#radio1").attr('checked', 'checked');
+	$("#radio1").button("refresh");
+	$("#radio4").attr('checked', 'checked');
+	$("#radio4").button("refresh");
+	
+	setSlider();
+	
+	$( "#radio1" ).change(function() { setSlider(); calc.bindingKOEF = 1.1; calculate(); });
+	$( "#radio2" ).change(function() { setSlider(); calc.bindingKOEF = 0; calculate(); });
+	$( "#radio3" ).change(function() { setSlider(); calc.typeKoef = 0.00096; calculate(); });
+	$( "#radio4" ).change(function() { setSlider(); calc.typeKoef = 0.00125; calculate(); });
+});
+
+function calculate()
+{
+	var thicknessScale = [ 65, 70, 80, 90, 100, 120, 160, 200 ];
+	
+	var factorOfset = 0.00125;
+	var factorMel = 0.00096;
+	
+	var thickness = thicknessScale[ calc.thicknessRaw / 10 ];
+	var typeKoef = calc.typeKoef;
+	var countPages = calc.countPages;
+	var bindingKOEF = calc.bindingKOEF;
+	
+	var res = ( ( thickness * typeKoef ) * ( countPages / 2 ) + bindingKOEF).toFixed(2);
+
+	$("#result-dgt").text( res );
+}
+
+$("#slider1a").empty().slider({
+			value: 0,
+			min: 0,
+			max: 70,
+			step: 10,
 			range: "min",
 			animate: true,
-			orientation: "horizontal"
+			orientation: "horizontal",
+			slide: function( event, ui ) { calc.thicknessRaw = ui.value; calculate( ui.value ); },
 		});
-$( "#slider2" ).empty().slider({
-			value: 50,
+$("#slider1b").empty().slider({
+			value: 0,
+			min: 0,
+			max: 40,
+			step: 10,
 			range: "min",
 			animate: true,
-			orientation: "horizontal"
-		});	
+			orientation: "horizontal",
+			slide: function( event, ui ) { calc.thicknessRaw = ui.value; calculate( ui.value ); },
+		});
+$("#slider2").empty().slider({
+			value: 36,
+			min: 36,
+			max: 1000,
+			step: 2,
+			range: "min",
+			animate: true,
+			orientation: "horizontal",
+			slide: function( event, ui ) { $("#pageq").text( ui.value ); calc.countPages = ui.value; calculate( ui.value ); },
+		});
 
 </script>
 
